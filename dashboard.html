@@ -42,7 +42,7 @@
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <span class="profile-text">Hello, Richard V.Welsh !</span>
-              <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image" id="profilepic">
+              <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image" id="profilepic1">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0"><br>
@@ -67,7 +67,7 @@
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
-                  <img src="images/faces/face1.jpg" alt="profile image" id="profilepic">
+                  <img src="images/faces/face1.jpg" alt="profile image" id="profilepic2">
                 </div>
                 <div class="text-wrapper">
                   <p class="profile-name">Richard V.Welsh</p>
@@ -250,7 +250,8 @@
         console.log("Email:" +email);
         photoUrl = user.photoURL;
         console.log("PhotoUrl:" +photoUrl);
-        document.getElementById("profilepic").src=photoUrl;
+        document.getElementById("profilepic1").src=photoUrl;
+        document.getElementById("profilepic2").src=photoUrl;
         uid = user.uid;
         console.log("UID:" +uid);
       }
