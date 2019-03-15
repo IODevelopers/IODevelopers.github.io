@@ -71,6 +71,7 @@
     }
 
     function userLoggedIn() {
+      console.log("Checking if user logged in")
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
         // User is signed in.
