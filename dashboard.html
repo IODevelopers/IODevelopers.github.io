@@ -226,6 +226,7 @@
       messagingSenderId: "791941464258"
     };
     firebase.initializeApp(config);
+    getUserDetails();
 
     function userSignOut() {
             firebase.auth().signOut().then(function() {
@@ -257,7 +258,7 @@
       }
     }
 
-    window.onload = getUserDetails;
+    // window.onload = getUserDetails;
 
 
   </script>
