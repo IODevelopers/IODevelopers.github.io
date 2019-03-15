@@ -47,7 +47,7 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0"><br>
               </a>
-              <a href="#" class="dropdown-item">
+              <a href="javascript:userSignOut()" class="dropdown-item">
                 Sign Out
               </a>
             </div>
@@ -214,6 +214,32 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDHmBeUmbW8PHQEAXarTmtMZfw3pboGShc",
+      authDomain: "karnakodekochi.firebaseapp.com",
+      databaseURL: "https://karnakodekochi.firebaseio.com",
+      projectId: "karnakodekochi",
+      storageBucket: "karnakodekochi.appspot.com",
+      messagingSenderId: "791941464258"
+    };
+    firebase.initializeApp(config);
+
+    function userSignOut() {
+            firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        console.log("Sign-out successful")
+        window.location = "https://iodevelopers.github.io"
+      }).catch(function(error) {
+        // An error happened.
+        console.log("Error")
+      });
+    }
+
+
+  </script>
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <script src="vendors/js/vendor.bundle.addons.js"></script>
   <script src="js/load-values.js"></script>
