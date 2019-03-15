@@ -64,11 +64,24 @@
       base_provider = new firebase.auth.GoogleAuthProvider()
       firebase.auth().signInWithPopup(base_provider).then(function(result){
         console.log("Success")
-        window.location = "dashboard.html"
+        window.location = "https://iodevelopers.github.io/dashboard.html"
       }).catch(function(err){
         console.log(err)
       })
     }
+
+    function userLoggedIn() {
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        // User is signed in.
+        window.location = "https://iodevelopers.github.io/dashboard.html"
+        } else {
+        // No user is signed in.
+        }
+      });
+    }
+
+    window.onload = userLoggedIn;
 
     // function login() {
 
