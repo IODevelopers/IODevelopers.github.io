@@ -246,7 +246,7 @@
         console.log("UID:" +uid);
       }
     }
-    
+
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyDHmBeUmbW8PHQEAXarTmtMZfw3pboGShc",
@@ -257,9 +257,8 @@
       messagingSenderId: "791941464258"
     };
     firebase.initializeApp(config);
-    getUserDetails();
 
-    // window.onload = getUserDetails;
+    window.onload = getUserDetails;
 
 
   </script>
