@@ -33,7 +33,7 @@
                     </a>
                     <br><br>
                 <div class="form-group">
-                  <button class="btn btn-block g-login">
+                  <button class="btn btn-block g-login" id="google-btn" onclick="googleSignIn()">
                     <img class="mr-3" src="images/google.svg" width="20px" alt="">Log in with Google</button>
                 </div>
               </form>
@@ -47,6 +47,51 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDHmBeUmbW8PHQEAXarTmtMZfw3pboGShc",
+      authDomain: "karnakodekochi.firebaseapp.com",
+      databaseURL: "https://karnakodekochi.firebaseio.com",
+      projectId: "karnakodekochi",
+      storageBucket: "karnakodekochi.appspot.com",
+      messagingSenderId: "791941464258"
+    };
+    firebase.initializeApp(config);
+
+    googleSignIn=()=> {
+      base_provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth().signInWithPopup(base_provider).then(function(result){
+        console.log("Success")
+      }).catch(function(err){
+        console.log(err)
+      })
+    }
+
+    // function login() {
+
+    //   function newLoginHappened(user) {
+    //     if (user) {
+    //       //User signed in
+    //       app(user);
+    //     }
+    //     else {
+    //       var provider = new firebase.auth.GoogleAuthProvider();
+    //       firebase.auth().signInWithRedirect(provider);
+    //     }
+    //   }
+
+    //   firebase.auth().onAuthStateChanged(newLoginHappened);
+    // }
+
+    // function app() {
+    //   console.log("Hello")
+    // }
+
+    // document.getElementById("google-btn").addEventListener("click", login);
+
+  </script>
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <script src="vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
