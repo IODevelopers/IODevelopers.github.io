@@ -64,7 +64,7 @@
       base_provider = new firebase.auth.GoogleAuthProvider()
       firebase.auth().signInWithPopup(base_provider).then(function(result){
         console.log("Success")
-        window.location.href = "dashboard.html";
+        window.location = "dashboard.html"
       }).catch(function(err){
         console.log(err)
       })
