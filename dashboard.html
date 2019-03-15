@@ -239,6 +239,7 @@
     }
 
     function getUserDetails() {
+      console.log("Inside user details")
       var user = firebase.auth().currentUser;
       var name, email, photoUrl, uid;
 
