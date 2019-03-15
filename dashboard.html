@@ -240,15 +240,18 @@
 
     function getUserDetails() {
       var user = firebase.auth().currentUser;
-      var name, email, photoUrl, uid, emailVerified;
+      var name, email, photoUrl, uid;
 
       if (user != null) {
         name = user.displayName;
+        console.log("Name:" +name);
         email = user.email;
+        console.log("Email:" +email);
         photoUrl = user.photoURL;
+        console.log("PhotoUrl:" +photoUrl);
         document.getElementById("profilepic").src=photoUrl;
-        emailVerified = user.emailVerified;
         uid = user.uid;
+        console.log("UID:" +uid);
       }
     }
 
