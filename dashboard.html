@@ -41,8 +41,8 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <!-- <span class="profile-text" id="name1">Hello, Richard V.Welsh !</span>
-              <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image" id="profilepic1"> -->
+              <!-- <span class="profile-text" id="name1">Hello, Richard V.Welsh !</span> -->
+              <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image" id="profilepic1">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0"><br>
@@ -69,8 +69,8 @@
                 <div class="profile-image">
                   <img src="images/faces/face1.jpg" alt="profile image" id="profilepic2">
                 </div>
-                <div class="text-wrapper">
-                  <p class="profile-name" id="name2">Richard V.Welsh</p>
+                <div class="text-wrapper" id="name2">
+                  <!-- <p class="profile-name">Richard V.Welsh</p> -->
                   <div>
                     <small class="designation text-muted">User</small>
                     <span class="status-indicator online"></span>
@@ -244,14 +244,17 @@
         stag.innerHTML = name;
         stag.class = "profile-text";
         parent1.append(stag);
-        var imgtag = document.createElement('img');
-        imgtag.class = "img-xs rounded-circle";
-        imgtag.src = photoUrl;
-        imgtag.alt = "Profile image";
-        parent1.append(imgtag);
+
+        var parent2 = document.getElementById('name2');
+        var ptag = document.createElement('p');
+        p.class = "profile-name";
+        p.innerHTML = name;
+        parent2.append(ptag);
+
         email = user.email;
         console.log("Email:" +email);
         console.log("PhotoUrl:" +photoUrl);
+        document.getElementById("profilepic1").src=photoUrl;
         document.getElementById("profilepic2").src=photoUrl;
         uid = user.uid;
         console.log("UID:" +uid);
