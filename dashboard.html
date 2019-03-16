@@ -41,8 +41,8 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <!-- <span class="profile-text" id="name1">Hello, Richard V.Welsh !</span> -->
-              <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image" id="profilepic1">
+              <!-- <span class="profile-text" id="name1">Hello, Richard V.Welsh !</span>
+              <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image" id="profilepic1"> -->
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0"><br>
@@ -236,6 +236,7 @@
       if (user != null) {
         name = user.displayName;
         console.log("Name:" +name);
+        photoUrl = user.photoURL;
         // document.getElementById("name1").textContent=name;
         // document.getElementById('name2').innerHTML=name;
         var parent1 = document.getElementById('UserDropdown');
@@ -243,11 +244,14 @@
         stag.innerHTML = name;
         stag.class = "profile-text";
         parent1.append(stag);
+        var imgtag = document.createElement('img');
+        imgtag.class = "img-xs rounded-circle";
+        imgtag.src = photoUrl;
+        imgtag.alt = "Profile image";
+        parent1.append(imgtag);
         email = user.email;
         console.log("Email:" +email);
-        photoUrl = user.photoURL;
         console.log("PhotoUrl:" +photoUrl);
-        document.getElementById("profilepic1").src=photoUrl;
         document.getElementById("profilepic2").src=photoUrl;
         uid = user.uid;
         console.log("UID:" +uid);
