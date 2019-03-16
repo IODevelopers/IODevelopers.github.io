@@ -41,7 +41,7 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text" id="name1">Hello, Richard V.Welsh !</span>
+              <!-- <span class="profile-text" id="name1">Hello, Richard V.Welsh !</span> -->
               <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image" id="profilepic1">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -236,8 +236,13 @@
       if (user != null) {
         name = user.displayName;
         console.log("Name:" +name);
-        document.getElementById("name1").textContent=name;
-        document.getElementById('name2').innerHTML=name;
+        // document.getElementById("name1").textContent=name;
+        // document.getElementById('name2').innerHTML=name;
+        var parent1 = document.getElementById('UserDropdown');
+        var stag = document.createElement('span');
+        stag.innerHTML = name;
+        stag.class = "profile-text";
+        parent1.append(stag);
         email = user.email;
         console.log("Email:" +email);
         photoUrl = user.photoURL;
