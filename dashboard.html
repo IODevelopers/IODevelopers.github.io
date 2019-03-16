@@ -290,20 +290,20 @@
     }
 
     // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDHmBeUmbW8PHQEAXarTmtMZfw3pboGShc",
-      authDomain: "karnakodekochi.firebaseapp.com",
-      databaseURL: "https://karnakodekochi.firebaseio.com",
-      projectId: "karnakodekochi",
-      storageBucket: "karnakodekochi.appspot.com",
-      messagingSenderId: "791941464258"
-    };
-    if (!firebase.apps.length) {
-    try {
-        firebase.initializeApp(config)
-    } catch (err) {
-        console.error(‘Firebase initialization error raised’, err.stack)
-    }
+    // var config = {
+    //   apiKey: "AIzaSyDHmBeUmbW8PHQEAXarTmtMZfw3pboGShc",
+    //   authDomain: "karnakodekochi.firebaseapp.com",
+    //   databaseURL: "https://karnakodekochi.firebaseio.com",
+    //   projectId: "karnakodekochi",
+    //   storageBucket: "karnakodekochi.appspot.com",
+    //   messagingSenderId: "791941464258"
+    // };
+    // if (!firebase.apps.length) {
+    // try {
+    //     firebase.initializeApp(config)
+    // } catch (err) {
+    //     console.error(‘Firebase initialization error raised’, err.stack)
+    // }
 
     window.onload = getUserDetails;
 
