@@ -230,35 +230,37 @@
 
     function getUserDetails() {
       console.log("Inside user details")
-      var user = firebase.auth().currentUser;
+      // var user = firebase.auth().currentUser;
       var name, email, photoUrl, uid;
 
-      if (user != null) {
-        name = user.displayName;
-        console.log("Name:" +name);
-        photoUrl = user.photoURL;
-        // document.getElementById("name1").textContent=name;
-        // document.getElementById('name2').innerHTML=name;
-        var parent1 = document.getElementById('UserDropdown');
-        var stag = document.createElement('span');
-        stag.innerHTML = name;
-        stag.class = "profile-text";
-        parent1.append(stag);
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          name = user.displayName;
+          console.log("Name:" +name);
+          photoUrl = user.photoURL;
+          // document.getElementById("name1").textContent=name;
+          // document.getElementById('name2').innerHTML=name;
+          var parent1 = document.getElementById('UserDropdown');
+          var stag = document.createElement('span');
+          stag.innerHTML = name;
+          stag.class = "profile-text";
+          parent1.append(stag);
 
-        var parent2 = document.getElementById('name2');
-        var ptag = document.createElement('p');
-        p.class = "profile-name";
-        p.innerHTML = name;
-        parent2.append(ptag);
+          var parent2 = document.getElementById('name2');
+          var ptag = document.createElement('p');
+          p.class = "profile-name";
+          p.innerHTML = name;
+          parent2.append(ptag);
 
-        email = user.email;
-        console.log("Email:" +email);
-        console.log("PhotoUrl:" +photoUrl);
-        document.getElementById("profilepic1").src=photoUrl;
-        document.getElementById("profilepic2").src=photoUrl;
-        uid = user.uid;
-        console.log("UID:" +uid);
-      }
+          email = user.email;
+          console.log("Email:" +email);
+          console.log("PhotoUrl:" +photoUrl);
+          document.getElementById("profilepic1").src=photoUrl;
+          document.getElementById("profilepic2").src=photoUrl;
+          uid = user.uid;
+          console.log("UID:" +uid);
+        }
+      });
     }
 
     // Initialize Firebase
