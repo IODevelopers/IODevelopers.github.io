@@ -232,6 +232,26 @@
       });
     }
 
+    function getCurrentUserDetails(uid) {
+
+      var xhr = new XMLHttpRequest();
+      url = "https://9nvv7wpamb.execute-api.ap-southeast-1.amazonaws.com/Development/get-userdetails";
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json["Data"]);
+            $("#ads").append(json["Data"]['AdsViewed']);
+            $("#moneygen").append("₹"+ json["Data"]['MoneyGenerated']);
+            $("#moneygain").append("₹"+ json["Data"]['MoneyGained']);
+            $("#moneydon").append("₹"+ json["Data"]['MoneyDonated']);
+          }
+      };
+      var data = JSON.stringify({"Username": uid});
+      xhr.send(data);
+    }
+
     function getUserDetails() {
       console.log("Inside user details")
       // var user = firebase.auth().currentUser;
@@ -263,6 +283,8 @@
           document.getElementById("profilepic2").src=photoUrl;
           uid = user.uid;
           console.log("UID:" +uid);
+
+          getCurrentUserDetails(uid);
         }
       });
     }
@@ -284,7 +306,6 @@
   </script>
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <script src="vendors/js/vendor.bundle.addons.js"></script>
-  <script src="js/load-values.js"></script>
   <script src="js/leaderboard.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
