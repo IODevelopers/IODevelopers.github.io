@@ -298,7 +298,13 @@
       storageBucket: "karnakodekochi.appspot.com",
       messagingSenderId: "791941464258"
     };
-    firebase.initializeApp(config);
+    if (!firebase.apps.length) {
+    try {
+        firebase.initializeApp(config)
+    } catch (err) {
+        console.error(‘Firebase initialization error raised’, err.stack)
+    }
+}
 
     window.onload = getUserDetails;
 
